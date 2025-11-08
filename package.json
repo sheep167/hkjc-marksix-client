@@ -1,0 +1,38 @@
+{
+	"name": "hkjc-marksix-sdk",
+	"module": "index.ts",
+	"type": "module",
+	"version": "1.0.0",
+	"description": "TypeScript SDK for Hong Kong Jockey Club Mark Six GraphQL API",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "bun build src/index.ts --outdir dist --target node",
+		"test": "bun test",
+		"lint": "eslint src --ext .ts"
+	},
+	"keywords": [
+		"hkjc",
+		"marksix",
+		"graphql",
+		"sdk",
+		"typescript"
+	],
+	"license": "MIT",
+	"devDependencies": {
+		"@types/bun": "latest",
+		"@types/node": "^24.10.0",
+		"@typescript-eslint/eslint-plugin": "^8.46.3",
+		"@typescript-eslint/parser": "^8.46.3",
+		"eslint": "^9.39.1",
+		"globals": "^16.5.0",
+		"typescript-eslint": "^8.46.3"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"dependencies": {
+		"graphql": "^16.12.0",
+		"graphql-request": "^7.3.1"
+	}
+}
