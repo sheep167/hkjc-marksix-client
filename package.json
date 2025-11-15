@@ -2,7 +2,7 @@
 	"name": "hkjc-marksix-client",
 	"module": "index.ts",
 	"type": "module",
-	"version": "1.0.0",
+	"version": "0.0.1",
 	"description": "TypeScript client for Hong Kong Jockey Club Mark Six GraphQL API",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -17,6 +17,17 @@
 		"graphql",
 		"client",
 		"typescript"
+	],
+	"author": "sheep167",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sheep167/hkjc-marksix-client.git"
+	},
+	"homepage": "https://github.com/sheep167/hkjc-marksix-client#readme",
+	"files": [
+		"dist/**/*",
+		"README.md",
+		"LICENSE"
 	],
 	"license": "MIT",
 	"devDependencies": {

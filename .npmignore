@@ -1,0 +1,9 @@
+# Development files
+src/
+tests/
+*.ts
+tsconfig.json
+.gitignore
+.github/
+node_modules/
+bun.lockb
