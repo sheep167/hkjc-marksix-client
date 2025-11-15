@@ -1,22 +1,12 @@
-// Enum for lottery status (assuming a limited set of values)
-enum LotteryStatus {
-	OPEN = "OPEN",
-	CLOSED = "CLOSED",
-	DRAWN = "DRAWN",
-	CANCELLED = "CANCELLED",
-}
-
-// Interface for individual lottery prizes
-interface LotteryPrize {
+export interface LotteryPrize {
 	type: string
 	winningUnit: number
 	dividend: number
 }
 
-// Interface for lottery pool details
-interface LotteryPool {
-	sell: number
-	status: LotteryStatus
+export interface LotteryPool {
+	sell: string
+	status: string
 	totalInvestment: number
 	jackpot: number
 	unitBet: number
@@ -25,36 +15,71 @@ interface LotteryPool {
 	lotteryPrizes: LotteryPrize[]
 }
 
-// Interface for draw result
-interface DrawResult {
+export interface DrawResult {
 	drawnNo: number[]
-	xDrawnNo?: number // Optional as it may not always be present
+	xDrawnNo: number[]
 }
 
-// Interface for lottery draw (from lotteryDrawsFragment)
-interface LotteryDraw {
+export interface LotteryDraw {
 	id: string
 	year: number
 	no: number
-	openDate: string // Use string for DateTime, assuming ISO string format
+	openDate: string
 	closeDate: string
 	drawDate: string
-	status: LotteryStatus
-	snowballCode?: string // Optional as it may not always be present
-	snowballName_en?: string
-	snowballName_ch?: string
+	status: string
+	snowballCode: string
+	snowballName_en: string
+	snowballName_ch: string
 	lotteryPool: LotteryPool
-	drawResult?: DrawResult // Optional as it may not always be present
+	drawResult: DrawResult
 }
 
-// Interface for time offset
-interface TimeOffset {
+export interface DrawnNumbers {
+	lastDrawnIn: number
+	totalNumber: number
+	drawnNo: number
+}
+
+export interface LotteryStat {
+	year: number
+	no: number
+	drawDate: string
+	drawnNumbers: DrawnNumbers[]
+}
+
+// Interface for TimeOffset
+export interface TimeOffset {
 	m6: number
 	ts: number
 }
 
-// Interface for the marksixDraw query response
-interface MarkSixDraw {
+// Interface for marksixDraw response
+export interface MarkSixDrawResponse {
 	timeOffset: TimeOffset
 	lotteryDraws: LotteryDraw[]
 }
+
+export type MarkSixDrawVariables = Record<string, never>
+
+export enum LotteryDrawType {
+	ALL = "All",
+	SNOWBALL = "Snowball",
+}
+
+export interface MarkSixResultVariables {
+	lastNDraw?: number
+	startDate?: Date
+	endDate?: Date
+	drawType?: LotteryDrawType
+}
+
+export interface MarkSixResultResponse {
+	lotteryDraws: LotteryDraw[]
+}
+
+export interface MarkSixStatResponse {
+	lotteryStats: LotteryStat[]
+}
+
+export type MarkSixStatVariables = Record<string, never>
